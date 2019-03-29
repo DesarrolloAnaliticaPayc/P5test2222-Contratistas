@@ -1,0 +1,43 @@
+ El volumen de la unidad E es Datos
+ El n£mero de serie del volumen es: 7E13-885E
+
+ Directorio de E:\REPO_TEMP\syncfusion_payc\syncfusion_payc\Views
+
+27/08/2018  10:47 a. m.    <DIR>          .
+27/08/2018  10:47 a. m.    <DIR>          ..
+12/07/2018  08:49 a. m.    <DIR>          Account
+06/08/2018  03:22 p. m.    <DIR>          CARGOS
+17/08/2018  04:05 p. m.    <DIR>          CLIENTES
+22/08/2018  04:09 p. m.    <DIR>          COLABORADORES
+06/08/2018  03:28 p. m.    <DIR>          CONTRATOS
+06/08/2018  04:28 p. m.    <DIR>          CONTRATOS_CONDICIONES
+06/08/2018  03:29 p. m.    <DIR>          CONTRATOS_ROL
+23/08/2018  09:00 a. m.    <DIR>          CONTRATO_COLABORADOR
+06/08/2018  10:56 a. m.    <DIR>          CONTRATO_PROYECTO
+22/08/2018  09:27 a. m.    <DIR>          CONTRATO_ROL_CARGO
+24/07/2018  01:05 p. m.    <DIR>          ESTUDIOS_COLABORADOR
+24/08/2018  07:19 p. m.    <DIR>          FlujoProyectos
+24/08/2018  07:21 p. m.    <DIR>          FLUJO_INGRESOS_ITEMS
+23/08/2018  11:18 a. m.    <DIR>          FLUJO_INGRESOS_ROL
+12/07/2018  08:49 a. m.    <DIR>          Home
+10/08/2018  03:16 p. m.    <DIR>          INCREMENTO_ORDEN
+24/08/2018  07:34 p. m.    <DIR>          INCREMENTO_SALARIAL
+24/08/2018  07:34 p. m.    <DIR>          ITEMS
+24/08/2018  07:06 p. m.    <DIR>          ITEMS_CONTRATO
+12/07/2018  08:49 a. m.    <DIR>          Manage
+24/07/2018  09:52 p. m.    <DIR>          PENDIENTES
+08/08/2018  06:25 p. m.    <DIR>          PROYECTOS
+24/08/2018  07:12 p. m.    <DIR>          REGISTRO_ITEMS_OTROS_COSTOS
+06/08/2018  03:22 p. m.    <DIR>          REGISTRO_NOVEDADES
+12/07/2018  08:49 a. m.    <DIR>          Role
+06/08/2018  03:24 p. m.    <DIR>          ROLES
+24/08/2018  07:36 p. m.    <DIR>          Shared
+06/08/2018  03:25 p. m.    <DIR>          TIPOS_NOVEDAD
+06/08/2018  03:32 p. m.    <DIR>          TIPO_CONDICION_CONTRACTUAL
+12/07/2018  08:49 a. m.    <DIR>          Users
+27/08/2018  10:47 a. m.                 0 vistas.txt
+22/08/2018  03:06 p. m.    <DIR>          VISTA_PENDIENTES_RETIRO
+16/07/2018  11:31 p. m.             2.327 Web.config
+27/06/2018  03:01 p. m.                57 _ViewStart.cshtml
+               3 archivos          2.384 bytes
+              33 dirs  468.480.901.120 bytes libres

@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@if (User.Identity.IsAuthenticated) { 
+
+    if (ViewBag.displayMenu == "Yes")
+    {
+        <h1>Bienvenido Admin</h1>
+        @*<h3>
+                <li>@Html.ActionLink("Administrar roles", "Index", "Role")</li>
+            </h3>*@
+    }
+    else
+    {
+        <h2>  Bienvenido <strong>@ViewBag.Name</strong>   </h2>
+    }
+    if (User.IsInRole("temporal"))
+    {
+        <div class="row">
+            @*ATRIBUTOS ENTREGABLE*@
+            <div class="col-md-6">
+                <table class="tabla_entregables">
+                    <tr class="fila_entregables">
+                        <td class="celda_entregables"><b>CILENTE</b>:</td>
+                        <td>@ViewBag.cli.DESCRIPCION</td>
+                    </tr>
+                    <tr class="fila_entregables">
+                        <td class="celda_entregables"><b>ENTREGABLE</b>:</td>
+                        <td>@ViewBag.acu.DESCRIPCION</td>
+                    </tr>
+                    <tr class="fila_entregables">
+                        <td class="celda_entregables"><b>NÚMERO FACTURA</b>:</td>
+                        <td class="celda_entregables">@ViewBag.cart.NUMERO_FACTURA</td>
+                    </tr>
+                    <tr class="fila_entregables">
+                        <td><b>FECHA ENTREGA</b>:</td>
+                        <td>@ViewBag.acu.FECHA_ACUERDO</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6">
+                @*RUTA ARVCHIVO*@
+                <div class="col-md-12 contenedor_entregables">
+                    <div class="col-md-8">
+                        <div class="form-group ruta_contrato">
+                            <label>ARCHIVO CONTRATO (MAX 10 MB)</label>
+                            @Html.EJ().Uploadbox("CARGUE_ARCHIVOS").AutoUpload(false).ExtensionsAllow(".doc, .docx,.pdf,.zip,.rar,.7z").FileSize(10000000).SaveUrl("ACUERDOS_PAGO_ENTREGAB/Save_entregables").RemoveUrl("ACUERDOS_PAGO_ENTREGAB/Remove_entregables").ClientSideEvents(c => c.Success("fileuploadSuccess_entregables").Remove("fileremovecomplete_entregables"))
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 contenedor_entregables">
+                    <div class="form-group ruta_entregables_display">
+                        <div class="col-md-10">
+                            <a class="archivo_entregable" id="id_ruta_entregables_display" href="@(ViewBag.RUTA== null ? "" : Html.Raw((String)ViewBag.RUTA.ToString()).ToString())">@ViewBag.NOMBRE_ARCHIVO</a>
+                        
+                            <span class='closebtn1 close_entregable' onclick='fileremovecomplete_entregables($(this))' alt="Eliminar archivo">&times;</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+}
+<script>
+
+    //Función  selección archivos
+    function onFileSelected_entregables(args) {
+            var archivo = args.filesData[0].name;
+
+        var url = "../Duplicados";
+
+            var data = "{archivo:'" + archivo + "'}";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                dataFilter: function (data) { return data; },
+                success: function (data) {
+                    if (data.responseText == "si") {
+                        $('.ruta_contrato .e-file-status').addClass("e-upload-fails");
+                        $('.ruta_contrato .e-file-status').text("Archivo duplicado, por favor renombrelo antes de cargalo");
+                    }
+                }
+            });
+
+        }
+    //Almacenaje de la ruta entregables
+    function fileuploadSuccess_entregables(e) {
+        var FileData = e.responseText.replace(" ","%20");
+       
+        $('.ruta_entregables_display').removeClass("oculta");
+        $(".archivo_entregable").attr("href", "ACUERDOS_PAGO_ENTREGAB/entregables/" + FileData);
+        $(".archivo_entregable").text(FileData.replace("%20"," "));
+        $(".ver_archivo").attr("href", "ACUERDOS_PAGO_ENTREGAB/entregables/" + FileData);
+    }
+    //Función que se activa al elimianar los archivos
+    function onFileRemove(args) {
+        args.postRawFile = false;
+    }
+    //remove completo entregables
+    function fileremovecomplete_entregables(e) {
+        $('.ruta_entregables_display').addClass("oculta");
+        $(".archivo_entregable").attr("href", "#");
+        $(".archivo_entregable").text("");
+        $(".ver_archivo").attr("href", "#");
+    }
+    //Función para ver los entregables
+    function ver_entregables(sender) {
+
+    }
+
+</script>
+
